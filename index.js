@@ -35,16 +35,16 @@ function editTernaryExpression({node, styleImportName, t}) {
 		if (t.isStringLiteral(newNode.consequent)) {
 			const { consequent: { value } } = newNode;
 			newNode.consequent = t.memberExpression (
-														 t.identifier (styleImportName),
-														 t.identifier (value)
-													)
+			 t.identifier (styleImportName),
+			 t.identifier (value)
+		)
 		}
 		if (t.isStringLiteral(newNode.alternate)) {
 			const { alternate: { value } } = newNode;
 			newNode.alternate = t.memberExpression (
-														t.identifier (styleImportName),
-														t.identifier (value)
-													)
+				t.identifier (styleImportName),
+				t.identifier (value)
+			)
 			}
 	}
 	recurse(expression);
