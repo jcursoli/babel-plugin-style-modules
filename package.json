@@ -1,0 +1,19 @@
+{
+  "name": "babel-plugin-style-modules",
+  "version": "1.0.0",
+  "description": "A babel plugin designed to allow your className's to be more intuitive and easier to reason about",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcursoli/babel-plugin-style-modules.git"
+  },
+  "author": "Joey Cursoli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcursoli/babel-plugin-style-modules/issues"
+  },
+  "homepage": "https://github.com/jcursoli/babel-plugin-style-modules#readme"
+}
