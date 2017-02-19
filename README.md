@@ -21,4 +21,4 @@ class App extends Component {
 }
 export default App;
 ```
-By using the styleName prop you can automatically chain classes and perform conditional expressions without having to prefix your class names such as `styles.main`. Chaining css module classes have never looked any better from ``${styles.main} ${styles.border}`` to `'main border'`.
+By using the styleName prop you can automatically chain classes and perform conditional expressions without having to prefix your class names such as `styles.main`. Chaining css module classes have never looked any better from ``${styles.main} ${styles.border}`` to `'main border'`. This plugin doesn't require any css extension preprocessor config files, just tell us what you are going to use (e.g. sass, scss, post-css).
