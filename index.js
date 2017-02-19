@@ -13,7 +13,7 @@ function CreateNewExpressioContainer (
 	) {
   return t.jSXAttribute (
     t.jSXIdentifier ('className'),
-     t.jSXExpressionContainer (
+    	t.jSXExpressionContainer (
         t.memberExpression (
           t.identifier (styleImportName),
           t.identifier (value),
@@ -35,20 +35,42 @@ function editTernaryExpression({node, styleImportName, t}) {
 		if (t.isStringLiteral(newNode.consequent)) {
 			const { consequent: { value } } = newNode;
 			newNode.consequent = t.memberExpression (
-			 t.identifier (styleImportName),
-			 t.identifier (value)
-		)
+														 t.identifier (styleImportName),
+														 t.identifier (value)
+													)
 		}
 		if (t.isStringLiteral(newNode.alternate)) {
 			const { alternate: { value } } = newNode;
 			newNode.alternate = t.memberExpression (
-				t.identifier (styleImportName),
-				t.identifier (value)
-			)
+														t.identifier (styleImportName),
+														t.identifier (value)
+													)
 			}
 	}
 	recurse(expression);
 	return node;
+}
+function createTemplateElement(values, styleImportName, t) {
+	const quasis = values.split(' ').map((value, index) => {
+		if (index === 0) {
+			return t.templateElement({ raw: '', cooked: '' }, false);
+		}
+		return t.templateElement({ raw: ' ', cooked: ' ' }, false)
+	});
+	quasis.push(t.templateElement({ raw: '', cooked: '' }, true));
+
+	const expressions = values.split(' ').map((value, index) => {
+		return t.memberExpression (
+				 t.identifier (styleImportName),
+				 t.identifier (value)
+			)
+	});
+	return t.jSXAttribute (
+		t.jSXIdentifier ('className'),
+			t.jSXExpressionContainer (
+				t.templateLiteral (quasis, expressions)
+			)
+		)
 }
 module.exports = function({ types: t }) {
 	const styleImportName = 'babelGeneratedName';
@@ -75,9 +97,13 @@ module.exports = function({ types: t }) {
 							if (t.isJSXIdentifier (node.name, { name: 'styleName' } )) {
 								if (t.isStringLiteral (node.value)) {
 									const { value: { value } } = node;
+									if (node.value.value.trim().split(' ').length > 1) {
+										return createTemplateElement (node.value.value, styleImportName, t);
+									}
 									return CreateNewExpressioContainer({ styleImportName, value, t });
 								 }
 								 if (t.isJSXExpressionContainer (node.value)) {
+									 // TemplateLiteral
 									let { value: { expression } } = node;
 									if (t.isStringLiteral (expression)) {
 										return CreateNewExpressioContainer ({ styleImportName, value: expression.value, t });
