@@ -3,7 +3,7 @@ A babel plugin designed to allow your className's to be more intuitive and easie
 # Usage
 
 By using the styleName prop you can automatically chain classes and perform conditional expressions without having to prefix your class names such as `styles.main`. Chaining css module classes have never looked any better from ``` {`${styles.main} ${styles.border}`} ``` to `'main border'`. This plugin doesn't require any css extension/preprocessor configurations, just tell us what you are going to use (e.g. sass, scss, less) and let your Webpack config take care of the rest.
-```
+```JSX
 import React, { Component } from 'react';
 import './app.sass';
 
@@ -39,7 +39,7 @@ Why not use babel-plugin-react-css-modules? I just want a simple transformer, no
 
 # Limitations
 At the moment you cannot define a className from a variable if you are importing multiple style modules   
-```
+```JSX
 const color = true ? 'app.green' : 'app.red';
 <div styleName={color}>Hello</div>
 ```
