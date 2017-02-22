@@ -1,3 +1,5 @@
+import createMemberExpression from './createMemberExpression';
+
 export default function ({ value: values, styleImportName, t }) {
   const quasis = values.trim().split(' ').map((value, index) => {
     if (index === 0) {

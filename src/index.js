@@ -1,5 +1,4 @@
 import checkConfigOptions from './utils/checkConfigOptions';
-import createMemberExpression from './utils/createMemberExpression';
 import createNewExpressionContainer from './utils/createNewExpressionContainer';
 import editConditionalExpression from './utils/editConditionalExpression';
 import throwIfNoImportNameExist from './utils/throwIfNoImportNameExist';

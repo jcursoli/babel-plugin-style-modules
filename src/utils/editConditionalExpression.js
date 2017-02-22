@@ -1,3 +1,5 @@
+import createMemberExpression from './createMemberExpression';
+
 export default function ({ node, styleImportName, t }) {
   const { value: { expression } } = node;
   node.name.name = 'className';
