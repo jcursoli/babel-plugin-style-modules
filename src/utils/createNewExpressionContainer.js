@@ -1,3 +1,5 @@
+import createMemberExpression from './createMemberExpression';
+
 export default function (
   { styleImportName,
     value,
