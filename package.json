@@ -4,7 +4,8 @@
   "description": "A babel plugin designed to allow your className's to be more intuitive and easier to reason about",
   "main": "lib/index.js",
   "scripts": {
-    "test": "babel-node ./test/index.js",
+    "remove-ds_store": "find . -name '.DS_Store' -type f -delete",
+    "test": "npm run remove-ds_store && babel-node ./test/index.js",
     "build": "rm -rf lib && babel src --out-dir lib"
   },
   "repository": {

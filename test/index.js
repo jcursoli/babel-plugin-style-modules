@@ -14,7 +14,7 @@ directories.forEach((file) => {
   const expectedFileContents = minify(readFileSync(expected) + '');
 
   const actualFileContents = minify(transformFileSync(actualPath, {
-              presets: ["react"],
+              presets: ['react'],
               plugins: [[plugin, { css: 'true' }]]
             }).code);
   try {
