@@ -1,4 +1,4 @@
-import { transform, transformFileSync } from 'babel-core';
+import { transformFileSync } from 'babel-core';
 import plugin from '../src/index.js';
 import { readdirSync } from 'fs';
 import minify from './helpers/minify.js';
@@ -24,7 +24,7 @@ directories.forEach((file) => {
     console.log(`${file} test passed!`);
     passedTests++;
   } catch (e) {
-    console.warn(`test failed at ${file}`);
+    console.warn(`TEST FAILED AT ${file}!`);
   }
 })
 console.log(`\n${passedTests} tests passed out of ${directories.length}`)
