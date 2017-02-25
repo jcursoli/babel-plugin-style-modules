@@ -1,6 +1,6 @@
 import { transform, transformFileSync } from 'babel-core';
 import plugin from '../src/index.js';
-import { readdirSync, readFileSync } from 'fs';
+import { readdirSync } from 'fs';
 import minify from './helpers/minify.js';
 import expect from 'expect';
 

@@ -1,3 +1,3 @@
 import './test.css';
 
-<div styleName="large">Hello</div>
+<div styleName='large'>Hello</div>
