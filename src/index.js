@@ -42,15 +42,15 @@ module.exports = function ({ types: t }) {
                     throwIfNoImportNameExist({ key: filename, imports: globalImports, classNames: value });
                     return createTemplateElement({ value, styleImportName, t });
                   }
-                  return createNewExpressionContainer({ styleImportName, value, t });
+                  return createNewExpressionContainer({ styleImportName, classValue: value, t });
                 }
                 if (t.isJSXExpressionContainer(node.value)) {
                   const { value: { expression } } = node;
                   if (t.isStringLiteral(expression)) {
-                    return createNewExpressionContainer({ styleImportName, value: expression.value, t });
+                    return createNewExpressionContainer({ styleImportName, classValue: expression.value, t });
                   }
                   if (t.isIdentifier(expression)) {
-                    return createNewExpressionContainer({ styleImportName, value: expression.name, t, computed: true });
+                    return createNewExpressionContainer({ styleImportName, classValue: expression.name, t, computed: true });
                   }
                   if (t.isConditionalExpression(expression)) {
                     return editConditionalExpression({ node, styleImportName, t });

@@ -1,3 +1,5 @@
 import './test.css';
-
-<div styleName={'yellow'}>Hello</div>
+<div>
+  <div styleName={'yellow-y'}>Hello</div>
+  <div styleName={'simple'}>Hello</div>
+</div>

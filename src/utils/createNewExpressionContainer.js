@@ -2,14 +2,14 @@ import createMemberExpression from './createMemberExpression';
 
 export default function (
   { styleImportName,
-    value,
+    classValue,
     computed = false,
     t } = {}
   ) {
   return t.jSXAttribute(
     t.jSXIdentifier('className'),
       t.jSXExpressionContainer(
-        createMemberExpression({ t, importName: styleImportName, classValue: value, computed })
+        createMemberExpression({ t, importName: styleImportName, classValue, computed })
       )
     );
 }
