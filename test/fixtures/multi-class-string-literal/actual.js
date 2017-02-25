@@ -1,3 +1,3 @@
 import './test.css';
 
-<div styleName="large min">Hello</div>
+<div styleName='large min'>Hello</div>

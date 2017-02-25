@@ -9,9 +9,11 @@ let passedTests = 0;
 const directories = readdirSync(fixturesDir);
 directories.forEach((file) => {
   const actualPath = `${fixturesDir}/${file}/actual.js`;
-  const expected = `${fixturesDir}/${file}/expected.js`;
+  const expectedPath = `${fixturesDir}/${file}/expected.js`;
 
-  const expectedFileContents = minify(readFileSync(expected) + '');
+  const expectedFileContents = minify(transformFileSync(expectedPath, {
+              presets: ['react']
+            }).code);
 
   const actualFileContents = minify(transformFileSync(actualPath, {
               presets: ['react'],
